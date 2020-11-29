@@ -12,6 +12,10 @@ class ArticlesController < ApplicationController
         @article = Article.new 
     end
 
+    def edit
+        @article = Article.find(params[:id])
+    end
+
     def create
         @article = Article.new(article_params) # initialize model. Article Params? 
 
@@ -22,8 +26,18 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def update # accepts a hash containing attributes to be updated. 
+        @article = Article.find(params[:id])
+       
+        if @article.update(article_params)
+          redirect_to @article
+        else
+          render 'edit'
+        end
+    end
+
     private # defining the params is done in its own method so that other actions can use the same controller.
-        def article_params
+    def article_params
             params.require(:article).permit(:title, :text)
     end
 
