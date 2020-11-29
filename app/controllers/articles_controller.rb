@@ -1,14 +1,18 @@
 class ArticlesController < ApplicationController
 
-    def show
+    def index # show all articles
+        @articles = Article.all
+    end
+
+    def show # finds article by id
         @article = Article.find(params[:id])
     end
 
-    def new
+    def new 
     end
 
     def create
-        @article = Article.new(article_params) # initialize model
+        @article = Article.new(article_params) # initialize model. Article Params? 
 
         @article.save # saves model to db. returns a boolean.
         redirect_to @article
