@@ -36,6 +36,13 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+
+        redirect_to articles_path
+    end
+
     private # defining the params is done in its own method so that other actions can use the same controller.
     def article_params
             params.require(:article).permit(:title, :text)
