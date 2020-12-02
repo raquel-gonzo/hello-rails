@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rake', '~> 13.0.1'
 
+gem 'nokogiri', '1.10.10'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
