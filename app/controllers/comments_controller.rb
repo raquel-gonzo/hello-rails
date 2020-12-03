@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+
+    http_basic_authenticate name: "dhh", password: "secret",
+    only: :destroy
+
     def create
         @article = Article.find(params[:article_id])
         @comment = @article.comments.create(comment_params) # links comment to belong to specific article.
