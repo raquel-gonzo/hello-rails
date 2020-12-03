@@ -1,12 +1,11 @@
 
-<h1>Listing Articles</h1>
+<h1 class="abril">Articles</h1>
 
-<%= link_to 'New article', new_article_path %>
- 
+<%= link_to '<button class="btn-style" type="button">New Article</button>'.html_safe, new_article_path %>
+
 <table>
   <tr>
-    <th>Title</th>
-    <th>Text</th>
+    <th class="abril">Title</th>
     <th colspan="2"></th>
   </tr>
  
@@ -14,10 +13,10 @@
 
     <tr>
       <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article), # passing named path as second argument
+     <% # <td><%= article.text</td> %> 
+      <td><%= link_to '<button class="btn-style" type="button">Read</button>'.html_safe, article_path(article) %></td>
+      <td><%= link_to '<button class="btn-style" type="button">Edit</button>'.html_safe, edit_article_path(article) %></td>
+      <td><%= link_to '<button class="btn-style" type="button">Delete</button>'.html_safe, article_path(article), # passing named path as second argument
         method: :delete, # these ar 'options' for HTML attributes as a third argument
         data: { confirm: 'Are you sure?' } %></td>
     </tr>
